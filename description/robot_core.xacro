@@ -48,7 +48,11 @@
             		<geometry>
                 		<cylinder radius = "0.125" length = "0.07"/>
             		</geometry>
-        	</collision>
+		</collision>
+
+		<xacro:inertial_cylinder mass= "0.5" radius="0.125" length="0.07">
+            		<origin xyz="0.0 0.0 0.035" rpy="0.0 0.0 0.0"/>
+        	</xacro:inertial_cylinder>
 
 	</link> 
 
@@ -74,7 +78,11 @@
             		<geometry>
                 		<sphere radius="0.0325"/>
             		</geometry>
-        	</collision>
+		</collision>
+
+		<xacro:inertial_cylinder mass= "0.1" radius="0.0325" length="0.026">
+            		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+          	</xacro:inertial_cylinder>
 
     	</link>
 
@@ -100,7 +108,11 @@
             		<geometry>
                 		<sphere radius="0.0325"/>
             		</geometry>
-        	</collision>
+		</collision>
+
+		 <xacro:inertial_cylinder mass= "0.1" radius="0.0325" length="0.026">
+            		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        	</xacro:inertial_cylinder>
     	</link>
 
 	<!-- front Castor wheel -->
@@ -124,7 +136,11 @@
             		<geometry>
                 		<sphere radius="0.0325"/>
             		</geometry>
-        	</collision>
+		</collision>
+
+		<xacro:inertial_sphere mass= "0.1" radius="0.0325">
+            		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        	</xacro:inertial_sphere>
     	</link>
 
     	<!-- back Castor wheel -->
@@ -148,6 +164,10 @@
             		<geometry>
                 		<sphere radius="0.0325"/>
             		</geometry>
-        		</collision>
+        	</collision>
+
+		<xacro:inertial_sphere mass= "0.1" radius="0.0325">
+            		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        	</xacro:inertial_sphere>
     	</link>
 </robot>
