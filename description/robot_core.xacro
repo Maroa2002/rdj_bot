@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	 <xacro:include filename="inertial_macros.xacro"/>
 
          <material name = "white">
         	<color rgba = "1 1 1 1"/>
@@ -49,6 +50,104 @@
             		</geometry>
         	</collision>
 
-    	 </link>
+	</link> 
 
+	<!-- left wheel -->
+    	<joint name = "left_wheel_joint" type="continuous">
+        	<parent link="base_link"/>
+        	<child link="left_wheel"/>
+        	<origin xyz="0.0 0.14 -0.07" rpy="-${pi/2} 0.0 0.0"/>
+        	<axis xyz="0.0 0.0 1"/>
+    	</joint>
+
+    	<link name="left_wheel">
+        	<visual>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<cylinder radius="0.0325" length="0.026"/>
+            		</geometry>
+            		<material name="blue"/>
+        	</visual>
+
+        	<collision>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<sphere radius="0.0325"/>
+            		</geometry>
+        	</collision>
+
+    	</link>
+
+    	<!-- right wheel -->
+    	<joint name = "right_wheel_joint" type="continuous">
+        	<parent link="base_link"/>
+        	<child link="right_wheel"/>
+        	<origin xyz="0.0 -0.14 -0.07" rpy="${pi/2} 0.0 0.0"/>
+        	<axis xyz="0.0 0.0 -1"/>
+    	</joint>
+
+    	<link name="right_wheel">
+        	<visual>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<cylinder radius="0.0325" length="0.026"/>
+            		</geometry>
+            		<material name="blue"/>
+        	</visual>
+
+        	<collision>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<sphere radius="0.0325"/>
+            		</geometry>
+        	</collision>
+    	</link>
+
+	<!-- front Castor wheel -->
+    	<joint name="front_castor_wheel_joint" type="fixed">
+        	<parent link="chassis"/>
+        	<child link="front_castor_wheel"/>
+        	<origin xyz="0.08 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    	</joint>
+
+    	<link name="front_castor_wheel">
+        	<visual>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<sphere radius="0.0325"/>
+            		</geometry>
+            		<material name="black"/>
+        	</visual>
+
+        	<collision>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<sphere radius="0.0325"/>
+            		</geometry>
+        	</collision>
+    	</link>
+
+    	<!-- back Castor wheel -->
+    	<joint name="back_castor_wheel_joint" type="fixed">
+        	<parent link="chassis"/>
+        	<child link="back_castor_wheel"/>
+        	<origin xyz="-0.08 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    	</joint>
+
+    	<link name="back_castor_wheel">
+        	<visual>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<sphere radius="0.0325"/>
+            		</geometry>
+            		<material name="black"/>
+        	</visual>
+
+        	<collision>
+            		<origin xyz="0 0 0"/>
+            		<geometry>
+                		<sphere radius="0.0325"/>
+            		</geometry>
+        		</collision>
+    	</link>
 </robot>
